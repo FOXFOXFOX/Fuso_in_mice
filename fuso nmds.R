@@ -101,3 +101,24 @@ names(only_fuso)[7] <- "fuso_total"
 
 #trim table to make easier for merging
 fuso_avg <- only_fuso[, colnames(only_fuso) %in% c("Group", "fuso_total")]
+
+fuso_abund <- merge(fuso_avg, metadata, by.x='Group', by.y='sampleID')
+
+#load the metadata in separately by experiment 
+expt1metadata <- read.delim("expt1_metadata.tsv", sep = "\t", header = T)
+expt2metadata <- read.delim("expt2_metadata.tsv", sep = "\t", header = T)
+names(expt2metadata)<- c("sampleID", "mouse", "cage", "day", "location", "experiment", "infected")
+
+fuso_abund1 <- merge(fuso_avg, expt1metadata, by.x="Group", by.y="sampleID")
+fuso_abund2 <- merge(fuso_avg, expt2metadata, by.x="Group", by.y="sampleID")
+
+#subset for just infected for exp 1
+fuso_1infected <- subset(fuso_abund1, infected == 'TRUE')
+
+#plot fuso abundance by location (only for infected)
+
+plot(fuso_1infected$location, fuso_1infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, expt 1")
+
+#to write to a PDF
+
+pdf(file='/Documents/Schloss_lab/Data/Fuso_mouse/expt1abundancelocation.pdf', width=14, height=10)
