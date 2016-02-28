@@ -114,11 +114,27 @@ fuso_abund2 <- merge(fuso_avg, expt2metadata, by.x="Group", by.y="sampleID")
 
 #subset for just infected for exp 1
 fuso_1infected <- subset(fuso_abund1, infected == 'TRUE')
+fuso_2infected <- subset(fuso_abund2, infected == 'TRUE')
 
 #plot fuso abundance by location (only for infected)
-
 plot(fuso_1infected$location, fuso_1infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, expt 1")
+plot(fuso_2infected$location, fuso_2infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, expt 2")
 
-#to write to a PDF
+#to write plot 1 to a PDF
+pdf(file='~/Documents/Schloss_Lab/Data/Fuso_mouse/expt1abundancelocation.pdf', width=14, height=10)
+plot(fuso_1infected$location, fuso_1infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, expt 1")
+dev.off()
 
-pdf(file='/Documents/Schloss_lab/Data/Fuso_mouse/expt1abundancelocation.pdf', width=14, height=10)
+#to write plot 2 to a PDF
+pdf(file='~/Documents/Schloss_Lab/Data/Fuso_mouse/expt2abundancelocation.pdf', width=14, height=10)
+plot(fuso_2infected$location, fuso_2infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, expt 2")
+dev.off()
+
+#plot abundance for uninfected first, probs a good idea
+fuso_1uninfected <- subset(fuso_abund1, infected == 'FALSE')
+plot(fuso_1uninfected$location, fuso_1uninfected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, uninfected, expt 1")
+
+
+
+
+#plot abundance by time point for infected expt 1 
