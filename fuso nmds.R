@@ -74,9 +74,30 @@ taxonomy <- gsub("/.*", "", taxonomy)
 taxonomy <- gsub(";$", "", taxonomy)
 taxonomy <- gsub(".*;", "", taxonomy)
 
+#change OTU names to taxonomy names. push this to file now?
+otu <- gsub("Otu0*", "OTU~", names(taxonomy))
+names(otu) <- names(taxonomy)
+
 #this takes out label and numOTUs column from shared file 
 subsampled <- subsampled[,!(colnames(subsampled) %in% c("label", "numOtus"))]
 
 #don't need axis stuff for this section of analysis, just merge subsampled and metadata 
 fusoOTUs <- merge(metadata, subsampled)
 
+#now want to add all of the fuso columns together and just plot abundance. 
+#so from taxonomy file we know the fuso species are Otu00110, Otu00243, Otu00313
+# Otu00961, Otu00994, Otu01880
+
+#pull out just fuso columns and sample names first. now i have a table of sample and fuso abundance
+only_fuso <- subsampled[, (colnames(subsampled) %in% c("Group", "Otu00110", "Otu00243", "Otu00313", "Otu00961", "Otu00994", "Otu01880"))]
+
+#can add columns together now. but maybe i need to make this rel abundance first? 
+
+#added columns together to make a 7th sum column
+only_fuso[,7] <- only_fuso[,2] + only_fuso[,3] + only_fuso[,4] + only_fuso[,5] + only_fuso[,6]
+
+#rename sum column 
+names(only_fuso)[7] <- "fuso_total"
+
+#trim table to make easier for merging
+fuso_avg <- only_fuso[, colnames(only_fuso) %in% c("Group", "fuso_total")]
