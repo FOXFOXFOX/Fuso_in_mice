@@ -1,7 +1,9 @@
 # Fuso_in_mice
 This repo contains data, metadata, analysis code and figures for the first two experiments in which I infected mice with Fusobacterium nucleatum 
 
-Analysis and experiment notes as of 3/3/16: 
+##most analytic code is in fuso nmds.R file
+
+##Analysis and experiment notes as of 3/3/16: 
 
 OTU00110 appears to be the innoculum, BLASTs to an animalis strain, Emma's lab papers
 show that the EAVG002 are closest to animalis. 
@@ -27,7 +29,7 @@ Analysis plans before meeting with Pat:
 colon, uninfected/infected side by side for each experiment 
   + OTU110/12 to get % abundance 
 
-**Project next steps:**
+### **Project next steps:**
 Need to find a better way than 16S to quantify. now that we have "controls" we could design an assay
 BUT:
 - qPCR won't be able to get good specificity w primers, even in "negative" controls there are other species
@@ -40,12 +42,13 @@ BUT:
 	+ gets around background issue 
 	+ would exposure to oxygen affect fuso viability if going to culture after?
 	
-**Several options going forward (while also troubleshooting other assays)**
+#### **Several options going forward (while also troubleshooting other assays)**
 - repeat this/these experiments as done before, 16S to see if this was just some infection error
 - redo 8week gavage model, shorter even, try to prove that the other model itself even works
 - look into cloning, GFP experiments
 - try other antibiotics for mice to be on
 - germ free mouse experiments? 
+- other analytics I can/should get out of this data? 
 
 
 

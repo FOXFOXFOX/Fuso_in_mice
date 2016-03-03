@@ -134,8 +134,25 @@ dev.off()
 fuso_1uninfected <- subset(fuso_abund1, infected == 'FALSE')
 plot(fuso_1uninfected$location, fuso_1uninfected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, uninfected, expt 1")
 
-#only pull out OTU00110 
+#only pull out OTU00110 as this appears to be the innoculum OTU
 fuso_110 <- only_fuso[, colnames(only_fuso) %in% c("Group", "Otu00110")]
+fuso_110_1 <- merge(fuso_110, metadata, by.x='Group', by.y='sampleID')
+fuso_110_abund <- merge(fuso_110, expt1metadata, by.x="Group", by.y="sampleID")
+fuso_100_infected <- subset(fuso_110_abund, infected == 'TRUE')
+
+#this plots only the amount of OTU110 in the infected samples
+plot(fuso_100_infected$location, fuso_100_infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium 110 abundance by sample location, infected mice, expt 1")
+
+#uninfected
+fuso_100_uninfected <- subset(fuso_110_abund, infected == 'FALSE')
+plot(fuso_100_uninfected$location, fuso_100_uninfected$Otu00110, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium 110 abundance by sample location, uninfected expt 1")
+
+#a strip chart makes it easier to tell whats going on 
+stripchart(fuso_110_abund$Otu00110~fuso_110_abund$infected)
+stripchart(fuso_110_abund$Otu00110~fuso_110_abund$infected, vertical = 'TRUE', method = 'jitter')
 
 
+#To do:
+# make stripchart for infected by location at 48hr for both experiments
 #plot abundance by time point for infected expt 1 
+#export as graphs, update Rmd file and plan for Monday 
