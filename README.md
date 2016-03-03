@@ -23,9 +23,9 @@ Fuso at t = 0???
 
  
 Analysis plans before meeting with Pat:
-1. make a stripchart of OTU110 rel abundance at 48 hr per location 
+- make a stripchart of OTU110 rel abundance at 48 hr per location 
 colon, uninfected/infected side by side for each experiment 
-- OTU110/12 to get % abundance 
+  + OTU110/12 to get % abundance 
 
 **Project next steps:**
 Need to find a better way than 16S to quantify. now that we have "controls" we could design an assay
@@ -41,11 +41,11 @@ BUT:
 	+ would exposure to oxygen affect fuso viability if going to culture after?
 	
 **Several options going forward (while also troubleshooting other assays)**
-1. repeat this/these experiments as done before, 16S to see if this was just some infection error
-2. redo 8week gavage model, shorter even, try to prove that the other model itself even works
-3. look into cloning, GFP experiments
-4. try other antibiotics for mice to be on
-5. germ free mouse experiments? 
+- repeat this/these experiments as done before, 16S to see if this was just some infection error
+- redo 8week gavage model, shorter even, try to prove that the other model itself even works
+- look into cloning, GFP experiments
+- try other antibiotics for mice to be on
+- germ free mouse experiments? 
 
 
 
