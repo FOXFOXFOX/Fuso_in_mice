@@ -134,7 +134,8 @@ dev.off()
 fuso_1uninfected <- subset(fuso_abund1, infected == 'FALSE')
 plot(fuso_1uninfected$location, fuso_1uninfected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, uninfected, expt 1")
 
-
+#only pull out OTU00110 
+fuso_110 <- only_fuso[, colnames(only_fuso) %in% c("Group", "Otu00110")]
 
 
 #plot abundance by time point for infected expt 1 

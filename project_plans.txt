@@ -1,0 +1,20 @@
+OTU analysis with Niel
+
+OTU00110 appears to be the innoculum, BLASTs to an animalis strain, Emma's lab papers
+show that the EAVG002 are closest to animalis 
+
+Other OTUs are different fuso types so can exclude those from analysis. still odd
+that there are so much fuso other subtypes in mouse background
+
+Only plot OTU110 now instead of fuso sums 
+
+make a stripchart of OTU110 rel abundance at 48 hr per location 
+colon, uninfected/infected side by side. 
+
+OTU110/12 to get % abundance 
+
+next steps:
+qPCR, primer specificity? even in "negative" controls there are other species 
+culture same issues
+16S going forward or ? 
+repeat experiment? 
