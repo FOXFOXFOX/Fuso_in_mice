@@ -40,7 +40,7 @@ BUT:
 	+ gets around background issue 
 	+ would exposure to oxygen affect fuso viability if going to culture after?
 	
-Several options going forward (while also troubleshooting other assays):
+**Several options going forward (while also troubleshooting other assays)**
 1. repeat this/these experiments as done before, 16S to see if this was just some infection error
 2. redo 8week gavage model, shorter even, try to prove that the other model itself even works
 3. look into cloning, GFP experiments
