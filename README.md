@@ -1,2 +1,52 @@
 # Fuso_in_mice
 This repo contains data, metadata, analysis code and figures for the first two experiments in which I infected mice with Fusobacterium nucleatum 
+
+Analysis and experiment notes as of 3/3/16: 
+
+OTU00110 appears to be the innoculum, BLASTs to an animalis strain, Emma's lab papers
+show that the EAVG002 are closest to animalis. 
+
+The V4 region of the EAVG-002 innoculum strain is:
+ACGTATGTCACGAGCGTTATCCGGATTTATTGGGCGTAAAGCGCGTCTAGGTGGT
+TATGTAAGTCTGATGTGAAAATGCAGGGCTCAACTCTGTATTGCGTTGGAAACTG
+TATAACTAGAGTACTGGAGAGGTAAGCGGAACTACAAGTGTAGAGGTGAAATTCG
+TAGATATTTGTAGGAATGCCGATGGGGAAGCCAGCTTACTGGACAGATACTGACG
+CTAAAGCGCGAAAGCGTGGGTAGCAAACAGG 
+
+The full 16S sequence is NCBI 4_8 or 21_1A from the EAV paper
+
+The other OTUs are different subspecies of F. nucleatum and so we can treat those as 
+background and exclude them from analysis. 
+But wait- are these found in experiment 2 as well?
+and why is there so much human Fuso in the mouse background?
+Fuso at t = 0???
+
+ 
+Analysis plans before meeting with Pat:
+1) make a stripchart of OTU110 rel abundance at 48 hr per location 
+colon, uninfected/infected side by side for each experiment 
+- OTU110/12 to get % abundance 
+
+Project next steps:
+Need to find a better way than 16S to quantify. now that we have "controls" we could design an assay
+BUT:
+	-qPCR won't be able to get good specificity w primers, even in "negative" controls there are other species
+		~try taqman probes, we might already have primers, need to check w Nick 
+	-similar issues with culturing
+	-can still try the broth subculturing experiments in antibiotic, compare output side by side
+		fuso WT and fuso stool
+	-GFP labeled fuso or antibiotic tagged with a transposon? This would be cool
+		~anaerobic GFP is expensive (evoglow). checking with Eric Martens about this. could try other ways
+		~quantify in plate reader based on fluorescence, would be cool
+		~gets around background issue 
+		~would exposure to oxygen affect fuso viability if going to culture after?
+	
+Several options going forward (while also troubleshooting other assays):
+1) repeat this/these experiments as done before, 16S to see if this was just some infection error
+2) redo 8week gavage model, shorter even, try to prove that the other model itself even works
+3) look into cloning, GFP experiments
+4) try other antibiotics for mice to be on
+5) germ free mouse experiments? 
+
+
+
