@@ -163,11 +163,37 @@ stripchart(fuso_110_abund2$Otu00110~fuso_110_abund2$infected, vertical = 'TRUE',
 # make stripchart for infected by location at 48hr for both experiments
 
 #to get % relative abundance, divide Otu00110 column by 12 (because subsampled to 1200 reads per sample)
-fuso_110_1[,10] <- (fuso_110_1[,2]/12)
-names(fuso_110_1)[10] <- "Otu00110_relAbund"
+#expt 1 table
+fuso_110_abund[,10] <- (fuso_110_abund[,2]/12)
+names(fuso_110_abund)[10] <- "Otu00110_relAbund"
 
+#xpt 2
+fuso_110_abund2[,10] <- (fuso_110_abund2[,2]/12)
+names(fuso_110_abund2)[10] <- "Otu00110_relAbund"
 
+#expt 1 graphs
+#fuso abundance in all samples, infected vs not.
+stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
+#by location
+stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$location, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "location", ylab = "n OTU00110 fuso abundance")
+#by mouse
+stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "mouse #", ylab = "n OTU00110 fuso abundance")
+#by time
+stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$day, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
 
+#expt2 graphs 
+#by infected or not
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
+#by location
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$location, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "location", ylab = "n OTU00110 fuso abundance")
+#by mouse
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "mouse", ylab = "n OTU00110 fuso abundance")
+#by time
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "day", ylab = "n OTU00110 fuso abundance")
+
+#to add colors feed each plot a list
+#example for storage
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', col = c("red", "orange", "yellow", "green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
 
 
 #To do:
