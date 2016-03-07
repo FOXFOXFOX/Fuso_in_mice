@@ -1,6 +1,6 @@
 ---
 title: "Fuso in mice report 3 6 16"
-output: html_document
+output: pdf_document
 ---
 
 ##Summary
@@ -85,21 +85,27 @@ stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$infected, vertical = 
 
 
 Breaking down the results a little more, we can examine the abundance of this fuso species by location. It appears it prefers the colon and cecal tissue over stool. This also explains why I was having trouble culturing fuso from stool and also in my qPCR experiments. 
+
 ```{r, echo = FALSE}
 #by location
 stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$location, vertical = 'TRUE', method = 'jitter', main = "Fusobacterium abundance, expt 1", xlab = "location", ylab = "%Fuso abundance")
 ```
 
 Looking at the abundance by mouse, we can see both that the abundance varies between mice and between cages. 
+
 ```{r, echo = FALSE}
 #by mouse
 stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$mouse, vertical = 'TRUE', method = 'jitter', main = "Fusobacterium abundance by mouse, expt 1", xlab = "mouse #", ylab = "%Fuso abundance")
+```
 
+
+```{r, echo = FALSE}
 #by cage
 stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$cage, vertical = 'TRUE', method = 'jitter', main = "Fusobacterium abundance by cage, expt 1", xlab = "cage", ylab = "%Fuso abundance")
 ```
 
 Looking at the distribution of abundance by timepoint, the fuso abundance is higher at 48hr, consistent with the finding that it is most commonly found in tissue samples (and the only tissue samples were taken at 48h). 
+
 ```{r, echo = FALSE}
 #by time
 stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$day, vertical = 'TRUE', method = 'jitter', main = "Fusobacterium abundance by timepoint, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
@@ -123,24 +129,29 @@ This plot shows all of the samples and their Fuso abundance whether they were in
 #expt2 graphs 
 #by infected or not
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium abundance, expt 2", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
+```
 
+```{r, echo = FALSE}
 #by location
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$location, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "location", ylab = "n OTU00110 fuso abundance")
 ```
 
 In these results we can see really only a few mouse got infected, if at all. This low and inconsistent level of infection confounds most further analysis. 
+
 ```{r, echo = FALSE}
 #by mouse
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "mouse", ylab = "n OTU00110 fuso abundance")
 ```
 
 Same by day, the amount of fuso trends with the timepoints that necropsy samples were taken. 
+
 ```{r, echo = FALSE}
 #by time
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', col = c("red", "orange", "yellow", "green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
 ```
 
 Finally, the most interesting part of the experiment was to see if pre-treatment affected fuso colonization. Again, becasue of the low level and inconsistent amount of infection it's hard to draw conclusions but these results show that antibiotic treated mice were more easily colonized than the other mice in this experiment. 
+
 ```{r, echo = FALSE}
 #by category
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$treatment, vertical = 'TRUE', method = 'jitter', col = c("green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 2", xlab = "treatment", ylab = "n OTU00110 fuso abundance")
