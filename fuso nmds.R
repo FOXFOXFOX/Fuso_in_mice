@@ -190,6 +190,10 @@ stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$location, vertical 
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "mouse", ylab = "n OTU00110 fuso abundance")
 #by time
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "day", ylab = "n OTU00110 fuso abundance")
+#by treatment
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$treatment, vertical = 'TRUE', method = 'jitter', col = c("green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 2", xlab = "treatment", ylab = "n OTU00110 fuso abundance")
+
+
 
 #to add colors feed each plot a list
 #example for storage

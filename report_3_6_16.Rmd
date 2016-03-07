@@ -72,6 +72,7 @@ names(fuso_110_abund)[10] <- "Otu00110_relAbund"
 fuso_110_abund2[,10] <- (fuso_110_abund2[,2]/12)
 names(fuso_110_abund2)[10] <- "Otu00110_relAbund"
 
+names(fuso_110_abund2)[9] <- "treatment"
 ```
 
 This is a plot of all of the samples and whether they were infected or not. It looks like one or some of the uninfected samples had fusobacterium in them. Contamination? 
@@ -104,25 +105,46 @@ Looking at the distribution of abundance by timepoint, the fuso abundance is hig
 stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$day, vertical = 'TRUE', method = 'jitter', main = "Fusobacterium abundance by timepoint, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
 ```
 
+####Conclusions 
+This experiment was informative because it showed that stool is not going to be a great readout for fuso abundance. The fact that some of the uninfected mouse cage got infected is perplexing and I think we should use at least two uninfected control cages in the future. 
+
+###Experiment 2
+
+####Experimental Design 
+The goal of this experiment was to test if pre-treatment of Cefeparazone or DSS created conditions that positively supported the colonization of the gut by Fusobacterium. I grew the bacteria from frozen as described in Experiment 1. I infected using the outline as described below. One thing of note was that the amount of fuso that was enumerated after input was 5-10fold lower than the first experiment, which may have affected the outcome of the experiment. 
+
+![Experiment 2 design](expt1diagram.png)
+
+####Results 
+
+This plot shows all of the samples and their Fuso abundance whether they were infected or not. Similar to experiment 1, there are some uninfected controls that came up Fusobacterium positive. Additionally, the abundance is overall about 10-fold lower in this experiment. Consistent with the previous experiment, the fusobacterium is found more commonly in tissue than in stool samples, though again we are limited by the lower abundance overall. 
 
 ```{r, echo = FALSE}
 #expt2 graphs 
 #by infected or not
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium abundance, expt 2", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
+
 #by location
 stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$location, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "location", ylab = "n OTU00110 fuso abundance")
-#by mouse
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "mouse", ylab = "n OTU00110 fuso abundance")
-#by time
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "day", ylab = "n OTU00110 fuso abundance")
-
-#to add colors feed each plot a list
-#example for storage
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', col = c("red", "orange", "yellow", "green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
-
-
-
-
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+In these results we can see really only a few mouse got infected, if at all. This low and inconsistent level of infection confounds most further analysis. 
+```{r, echo = FALSE}
+#by mouse
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "mouse", ylab = "n OTU00110 fuso abundance")
+```
+
+Same by day, the amount of fuso trends with the timepoints that necropsy samples were taken. 
+```{r, echo = FALSE}
+#by time
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', col = c("red", "orange", "yellow", "green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
+```
+
+Finally, the most interesting part of the experiment was to see if pre-treatment affected fuso colonization. Again, becasue of the low level and inconsistent amount of infection it's hard to draw conclusions but these results show that antibiotic treated mice were more easily colonized than the other mice in this experiment. 
+```{r, echo = FALSE}
+#by category
+stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$treatment, vertical = 'TRUE', method = 'jitter', col = c("green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 2", xlab = "treatment", ylab = "n OTU00110 fuso abundance")
+```
+
+###Conclusions
+I'm frustrated we didn't have a better infection level in this experiment, we really could have gotten a lot more information out of it. I think these conditions are worth testing again, either as part of a smaller or larger experiment. Additionally, the variability in innoculum is frustrating too. I think that while these results are inconclusive overall they do show that fusobacterium can infect mice and be detected within a community, primarily in tissue and not stool samples. These results will help inform future experiments and the design of a high-throughput screen to test this model. 
