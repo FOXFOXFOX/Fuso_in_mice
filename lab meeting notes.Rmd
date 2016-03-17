@@ -1,0 +1,13 @@
+Sections
+1) defining variables/packages
+2) import files
+3) format data (combine metadata, subset, etc)
+4) plotting
+5) export 
+
+alternatively, chunk reformatting, plotting, etc by calculations and figures in Rmd
+
+combine with functions if there are calculations that need to be done on several sets of data 
+
+could start new file each day for exploration 
+
