@@ -134,72 +134,8 @@ dev.off()
 fuso_1uninfected <- subset(fuso_abund1, infected == 'FALSE')
 plot(fuso_1uninfected$location, fuso_1uninfected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium abundance by sample location, uninfected, expt 1")
 
-#only pull out OTU00110 as this appears to be the innoculum OTU
-fuso_110 <- only_fuso[, colnames(only_fuso) %in% c("Group", "Otu00110")]
-fuso_110_1 <- merge(fuso_110, metadata, by.x='Group', by.y='sampleID')
-
-#expt 1 stuff
-fuso_110_abund <- merge(fuso_110, expt1metadata, by.x="Group", by.y="sampleID")
-fuso_100_infected <- subset(fuso_110_abund, infected == 'TRUE')
-
-#expt 2 stuff 
-fuso_110_abund2 <- merge(fuso_110, expt2metadata, by.x = "Group", by.y = "sampleID")
-fuso_110_2infected <- subset(fuso_110_abund, infected == 'TRUE')
-
-#this plots only the amount of OTU110 in the infected samples
-plot(fuso_100_infected$location, fuso_100_infected$fuso_total, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium 110 abundance by sample location, infected mice, expt 1")
-
-#uninfected
-fuso_100_uninfected <- subset(fuso_110_abund, infected == 'FALSE')
-plot(fuso_100_uninfected$location, fuso_100_uninfected$Otu00110, type = "p", xlab = "sample location", ylab = "n fusobacterium reads", main = "fusobacterium 110 abundance by sample location, uninfected expt 1")
-
-#a strip chart makes it easier to tell whats going on 
-#expt 1, looks like some neg controls were infected
-stripchart(fuso_110_abund$Otu00110~fuso_110_abund$infected, vertical = 'TRUE', method = 'jitter', main = "n samples with fusobacterium OTU00110 present, expt 1", xlab = "infected?", ylab = "n OTU00110 fuso reads")
-
-#expt 2, less problem with neg controls infected 
-stripchart(fuso_110_abund2$Otu00110~fuso_110_abund2$infected, vertical = 'TRUE', method = 'jitter', main = "n samples with fusobacterium OTU00110 present, expt 2", xlab = "infected?", ylab = "n OTU00110 fuso reads")
-
-# make stripchart for infected by location at 48hr for both experiments
-
-#to get % relative abundance, divide Otu00110 column by 12 (because subsampled to 1200 reads per sample)
-#expt 1 table
-fuso_110_abund[,10] <- (fuso_110_abund[,2]/12)
-names(fuso_110_abund)[10] <- "Otu00110_relAbund"
-
-#xpt 2
-fuso_110_abund2[,10] <- (fuso_110_abund2[,2]/12)
-names(fuso_110_abund2)[10] <- "Otu00110_relAbund"
-
-#expt 1 graphs
-#fuso abundance in all samples, infected vs not.
-stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
-#by location
-stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$location, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "location", ylab = "n OTU00110 fuso abundance")
-#by mouse
-stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "mouse #", ylab = "n OTU00110 fuso abundance")
-#by time
-stripchart(fuso_110_abund$Otu00110_relAbund~fuso_110_abund$day, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
-
-#expt2 graphs 
-#by infected or not
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$infected, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "infected?", ylab = "n OTU00110 fuso abundance")
-#by location
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$location, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "location", ylab = "n OTU00110 fuso abundance")
-#by mouse
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$mouse, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "mouse", ylab = "n OTU00110 fuso abundance")
-#by time
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', main = "fusobacterium OTU00110 abundance, expt 2", xlab = "day", ylab = "n OTU00110 fuso abundance")
-#by treatment
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$treatment, vertical = 'TRUE', method = 'jitter', col = c("green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 2", xlab = "treatment", ylab = "n OTU00110 fuso abundance")
+fuso_2uninfected <- subset(fuso_abund2, infected == 'FALSE')
 
 
 
-#to add colors feed each plot a list
-#example for storage
-stripchart(fuso_110_abund2$Otu00110_relAbund~fuso_110_abund2$day, vertical = 'TRUE', method = 'jitter', col = c("red", "orange", "yellow", "green", "blue", "purple"), main = "n samples with fusobacterium OTU00110 present, expt 1", xlab = "day", ylab = "n OTU00110 fuso abundance")
-
-
-#To do:
 #plot abundance by time point for infected expt 1 
-#export as graphs, update Rmd file w graphs and thoughts and plan for Monday 

@@ -1,6 +1,6 @@
 ---
 title: "Fuso in mice report 3 6 16"
-output: pdf_document
+output: html_document
 ---
 
 ##Summary
