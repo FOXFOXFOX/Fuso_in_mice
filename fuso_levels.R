@@ -43,9 +43,9 @@ names(fuso_153abund)[9] <- "Otu153_relAbund"
 
 stripchart(fuso_153abund$Otu153_relAbund~fuso_153abund$infected, vertical = 'TRUE', method = 'jitter', main = 'fusobacterium OTU153 rel abund', xlab = "infected?", ylab="relabund", ylim=c(0,1))
 
-stripchart(fuso_153abund$Otu153_relAbund~fuso_153abund$location, vertical = 'TRUE', method = 'jitter', main = 'F. nucleatum relative abundance by sample site', xlab = "sample site", ylab="% Relative abundance", ylim=c(0,1))
+stripchart(fuso_153abund$Otu153_relAbund~fuso_153abund$location, vertical = 'TRUE', method = 'jitter', main = 'F. nucleatum relative abundance by sample site', xlab = "sample site", ylab="% Relative abundance", ylim=c(0,0.6))
 
-stripchart(fuso_153abund$Otu153_relAbund~fuso_153abund$treatment, vertical = 'TRUE', method = 'jitter', main = 'F. nucleatum relative abundance in each treatment group', xlab = "treatment group", ylab="% Relative abundance", ylim=c(0,1))
+stripchart(fuso_153abund$Otu153_relAbund~fuso_153abund$treatment, vertical = 'TRUE', method = 'jitter', main = 'F. nucleatum relative abundance in each treatment group', xlab = "treatment group", ylab="% Relative abundance", ylim=c(0,0.6))
 
 stripchart(fuso_153abund$Otu153_relAbund~fuso_153abund$day, vertical = 'TRUE', method = 'jitter', main = 'fusobacterium OTU153 rel abund', xlab = "day", ylab="relabund", ylim=c(0,1))
 

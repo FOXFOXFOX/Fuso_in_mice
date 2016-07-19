@@ -1,60 +1,17 @@
 # Fuso_in_mice
-This repo contains data, metadata, analysis code and figures for the first two experiments in which I infected mice with Fusobacterium nucleatum 
+This repo contains data, metadata, analysis code and figures for the first three  experiments in which I infected mice with Fusobacterium nucleatum 
 
-####most analytic code is in fuso nmds.R file####
+###Summary update, 7/19/16:###
+I have completed the analysis for the third fusobacterium experiment. In brief, in this experiment I infected mice daily with 10^8 CFU Fusobacterium for 5 days. The mice had either been pretreated with DSS or kept on either a high or low concentration of Vancomycin throughout the infection. At day 3 and day 10 (following a 5 day recovery period) I sacrificed the mice and harvested cecum, cecal content, stool and colon tissue. I isolated DNA and ran 16S on the samples. 
 
-Summary update, 3/4/16:
-I have analyzed my mouse fuso infection 16S results (more plots and code to come over the weekend) and have findings to discuss. The two experiments differed in the ability of fuso to colonize and the levels at which it colonized. Perhaps the most interesting and consistent finding is that fuso is more abundant in cecal and colon tissue than stool, by at least 1 order of magnitude. I need to finish the analysis over the weekend so there's not much to look at just yet in terms of plots but hang tight. 
+In general, there was very few reads overall for the fusobacterium input strain. The mice did seem to contain a number of other Fusobacterium strains in higher abundance than the input strain, but overall the amount of reads for the entire experiment was low, ~400 reads total for the highest OTU. One concern about the sequencing is that there were levels of non-nucleatum Fusobacterium strains found in the negative sequencing controls. These appear to be human stool contaminants, something I had observed in the previous mouse experiments. Because of the contamination and low abundance, any Fuosbacterium sample we see is not likely to be the ATCC input nucleatum subsp nucleatum strain. Thus this experiment did not show that Fusobacterium was able to colonize these mice. 
 
 ### **Project next steps:**
-Even though I love all of the information we can get from it, going forward it would ideal to have a faster/cheaper way than 16S to quantify colonization. now that we have "controls" we could design an assay
-BUT:
-- qPCR won't be able to get good specificity w primers, even in "negative" controls there are other species. this is consisted with Eric Marten's findings
-	+ try taqman probes, we might already have primers, need to check w Nick 
-	+ could consider barcoding, then primers are more specific. Fuso is genetically tractable. There is a transposon system but that introduces camR which other species are certainly resistant to and have same cat gene.
-- similar issues with culturing
-- can still try the broth subculturing experiments in antibiotic, compare output side by side, fuso WT and fuso stool
-- GFP labeled fuso or antibiotic tagged with a transposon? This would be cool
-	+ anaerobic GFP is expensive (evoglow). 
-	+ talked with Eric and even when they do GFP fusions with constitutively active promoter, cant see GFP in gut or in stool or in plated stool. only in vitro.
-	+ quantify in plate reader based on fluorescence, would be cool
-	+ gets around background issue 
-- FISH maybe best, quantitative FISH, sectioning of tissues. But this is no longer "quick and dirty"
-- same with monoclonal antibodies
+Though I did not have much striking data to present at Anaerobe, I did get some good suggestions for how to move forward. A number of people suggested that we switch to the Apc min mouse model, as these are the only mice published on to be able to host Fusobacterium in their gut. I also met with Cindy Sears who pointed me to her lab's newest paper where they are able to get Fuso to colonize an APCmin mouse using a different antibiotic regimen. Additionally, I am still interested in pursuing a better quantification technique that does not at least at first rely on 16S sequencing as even with this most sensitive method I haven't been able to glean insights from this project. 
+
+In the short-term, I'm going to read the newest Sears paper and see if we might be able to adapt their model to our interests. She has also offered to send her the strain they use for their mice, which is a Fusobacterium nucleatum subsp nucleatum strain but has not been fully sequenced (human isolate). However I have other projects to focus on and don't think I will pick up the Fusobacterium one again until significant progress is made with the KWS analysis and paper. 
+
+I will though do the basic oxygen sensitivity characterization tests we discussed at my chalk talk, and, finally the GF core is nearly ready to do the GF experiment so that will be able to take place with little effort on my part. 
 	
-### **Several options going forward (while also troubleshooting other assays)**
-- repeat this/these experiments as done before, 16S to see if this was just some infection error
-- redo 8week gavage model, shorter even, try to prove that the other model itself even works
-- look into cloning, GFP experiments
-- try other antibiotics for mice to be on
-- germ free mouse experiments? 
-- other analytics I can/should get out of this data? 
-
-##Analysis and experiment notes as of 3/3/16: 
-
-OTU00110 appears to be the innoculum, BLASTs to an animalis strain, Emma's lab papers
-show that the EAVG002 are closest to animalis. 
-
-The V4 region of the EAVG-002 innoculum strain is:
-ACGTATGTCACGAGCGTTATCCGGATTTATTGGGCGTAAAGCGCGTCTAGGTGGT
-TATGTAAGTCTGATGTGAAAATGCAGGGCTCAACTCTGTATTGCGTTGGAAACTG
-TATAACTAGAGTACTGGAGAGGTAAGCGGAACTACAAGTGTAGAGGTGAAATTCG
-TAGATATTTGTAGGAATGCCGATGGGGAAGCCAGCTTACTGGACAGATACTGACG
-CTAAAGCGCGAAAGCGTGGGTAGCAAACAGG 
-
-The full 16S sequence is NCBI 4_8 or 21_1A from the EAV paper
-
-The other OTUs are different subspecies of F. nucleatum and so we can treat those as 
-background and exclude them from analysis. 
-But wait- are these found in experiment 2 as well?
-and why is there so much human Fuso in the mouse background?
-Fuso at t = 0???
-
- 
-Analysis plans before meeting with Pat:
-- make a stripchart of OTU110 rel abundance at 48 hr per location 
-colon, uninfected/infected side by side for each experiment 
-  + OTU110/12 to get % abundance 
-
 
 
